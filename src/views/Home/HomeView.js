@@ -1,7 +1,10 @@
-import React from 'react'
+import React from "react";
+import { Button } from "antd";
 
 export default function HomeView() {
   return (
-    <div>HomeView</div>
-  )
+    <div>
+      <Button type="primary">Primary Button</Button>
+    </div>
+  );
 }
