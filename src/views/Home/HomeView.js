@@ -73,7 +73,7 @@ export default function HomeView() {
         hour12: true,
       })
     );
-    setTemp(data.main.temp);
+    setTemp(Math.round(data.main.temp));
     setWind(data.wind.speed);
     setIcon(data.weather[0].icon);
     // console.log(data);
@@ -183,7 +183,7 @@ export default function HomeView() {
                           />
                           <h5>
                             {item.main.temp
-                              ? item.main.temp + "℃"
+                              ? Math.round(item.main.temp) + "℃"
                               : "not ready"}
                           </h5>
                         </div>
