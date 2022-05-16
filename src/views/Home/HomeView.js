@@ -151,9 +151,13 @@ export default function HomeView() {
                 </div>
               </div>
               <div className="row mb-4">
-                {wheather.list?.map((item, index) => {
-                  if (index % 8 === 0) {
-                    return (
+                {
+                  // wheather.list?.forEach(item, index => {
+
+                  // });
+
+                  wheather.list?.map((item, index) =>
+                    index % 8 === 0 ? (
                       <div className="col text-center" key={index.toString()}>
                         <h5>
                           {item.dt_txt
@@ -174,9 +178,14 @@ export default function HomeView() {
                           {item.main.temp ? item.main.temp + "℃" : "not ready"}
                         </h5>
                       </div>
-                    ); // end return
-                  } // end if
-                })}
+                    ) : (
+                      <></>
+                    ) // end return
+                    // } else {
+                    //   return;
+                    // } // end if
+                  )
+                }
               </div>
             </div>
           </div>
