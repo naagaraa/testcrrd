@@ -1,5 +1,5 @@
 // import { getDefaultNormalizer } from "@testing-library/react";
-import React, { useEffect, useState, ComponentDidMount } from "react";
+import React, { useEffect, useState } from "react";
 import "./HomeStyle.css";
 
 export default function HomeView() {
