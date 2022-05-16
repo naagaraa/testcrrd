@@ -121,14 +121,18 @@ export default function HomeView() {
               </div>
               <div className="row">
                 <div className="col-4 text-center mb-5">
-                  <img
-                    src={
-                      city
-                        ? `http://openweathermap.org/img/wn/${icon}@2x.png`
-                        : ""
-                    }
-                    alt="icon"
-                  />
+                  {city ? (
+                    <img
+                      src={
+                        city
+                          ? `http://openweathermap.org/img/wn/${icon}@2x.png`
+                          : ""
+                      }
+                      alt="icon"
+                    />
+                  ) : (
+                    <></>
+                  )}
                   <h5>{city ? description : ""}</h5>
                 </div>
                 <div className="col-4 text-center my-auto">
@@ -156,31 +160,36 @@ export default function HomeView() {
 
                   // });
 
-                  wheather.list?.map((item, index) =>
-                    index % 8 === 0 ? (
-                      <div className="col text-center" key={index.toString()}>
-                        <h5>
-                          {item.dt_txt
-                            ? new Date(item.dt_txt)
-                                .toLocaleDateString("en-US", {
-                                  weekday: "short",
-                                })
-                                .toUpperCase()
-                            : "not ready"}
-                        </h5>
-                        <img
-                          src={`http://openweathermap.org/img/wn/${
-                            item.weather[0].icon ? item.weather[0].icon : "10n"
-                          }@2x.png`}
-                          alt="icon"
-                        />
-                        <h5>
-                          {item.main.temp ? item.main.temp + "℃" : "not ready"}
-                        </h5>
-                      </div>
-                    ) : (
-                      <></>
-                    ) // end return
+                  wheather.list?.map(
+                    (item, index) =>
+                      index % 8 === 0 ? (
+                        <div className="col text-center" key={index.toString()}>
+                          <h5>
+                            {item.dt_txt
+                              ? new Date(item.dt_txt)
+                                  .toLocaleDateString("en-US", {
+                                    weekday: "short",
+                                  })
+                                  .toUpperCase()
+                              : "not ready"}
+                          </h5>
+                          <img
+                            src={`http://openweathermap.org/img/wn/${
+                              item.weather[0].icon
+                                ? item.weather[0].icon
+                                : "10n"
+                            }@2x.png`}
+                            alt="icon"
+                          />
+                          <h5>
+                            {item.main.temp
+                              ? item.main.temp + "℃"
+                              : "not ready"}
+                          </h5>
+                        </div>
+                      ) : (
+                        <></>
+                      ) // end return
                     // } else {
                     //   return;
                     // } // end if
