@@ -36,7 +36,7 @@ export default function HomeView() {
       });
     } else {
       const apikey = "74cf6fe862d053cc4a21ee2d80bb2c3d";
-      const url = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apikey}&cnt=120&units=metric`;
+      const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apikey}&cnt=120&units=metric`;
       const response = await fetch(url);
 
       if (response.status >= 200 && response.status <= 299) {
