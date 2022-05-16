@@ -127,6 +127,7 @@ export default function HomeView() {
                         ? `http://openweathermap.org/img/wn/${icon}@2x.png`
                         : ""
                     }
+                    alt="icon"
                   />
                   <h5>{city ? description : ""}</h5>
                 </div>
@@ -150,12 +151,8 @@ export default function HomeView() {
                 </div>
               </div>
               <div className="row mb-4">
-                {/* &nbsp; */}
                 {wheather.list?.map((item, index) => {
                   if (index % 8 === 0) {
-                    // console.log(item.weather[0].icon);
-                    // console.log(item.dt_txt);
-                    // console.log(item.wind.speed);
                     return (
                       <div className="col text-center" key={index.toString()}>
                         <h5>
@@ -177,44 +174,9 @@ export default function HomeView() {
                           {item.main.temp ? item.main.temp + "℃" : "not ready"}
                         </h5>
                       </div>
-                    );
-                  }
+                    ); // end return
+                  } // end if
                 })}
-                {/* <div className="col">
-                  <p>{item.dt_txt ? item.dt_txt : "not ready"}</p>
-                  <img
-                    src={`http://openweathermap.org/img/wn/${
-                      item.weather[0].icon ? item.weather[0].icon : "10n"
-                    }@2x.png`}
-                    alt="icon"
-                  />
-                  <p>{item.wind.speed ? item.wind.speed : "not ready"}</p>
-                </div> */}
-                {/* <div className="col">
-                  <p>THJ</p>
-                  <img src="" alt="icon" />
-                  <p>30*</p>
-                </div>
-                <div className="col">
-                  <p>THJ</p>
-                  <img src="" alt="icon" />
-                  <p>30*</p>
-                </div>
-                <div className="col">
-                  <p>THJ</p>
-                  <img src="" alt="icon" />
-                  <p>30*</p>
-                </div>
-                <div className="col">
-                  <p>THJ</p>
-                  <img src="" alt="icon" />
-                  <p>30*</p>
-                </div>
-                <div className="col">
-                  <p>THJ</p>
-                  <img src="" alt="icon" />
-                  <p>30*</p>
-                </div> */}
               </div>
             </div>
           </div>
